@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head th:replace="fragments/parts::head">
+</head>
+<br>
+<br>
+<br>
+<br>
+
+<header th:replace="fragments/parts::navbar">
+</header>
+
+<body>
+<div class="container">
+    <center><h2>Clinic's List</h2></center>
+    <br>
+    <br>
+    <table id="example" class="table table-striped table-bordered" style="width:100%">
+        <tr>
+            <th>Name</th>
+            <th>Address</th>
+            <th>Telephone Number</th>
+            <th>Email</th>
+            <th>Website</th>
+            <th>Description</th>
+        </tr>
+        <tr th:each="clinic : ${clinics}">
+            <td th:text="${clinic.name}">Name</td>
+            <td th:text="${clinic.address}">Address</td>
+            <td th:text="${clinic.telephone}">Telephone Number</td>
+            <td th:text="${clinic.email}">Email</td>
+            <td th:text="${clinic.website}">Website</td>
+            <td th:text="${clinic.description}">Description</td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:replace="fragments/parts::head">
+</head>
+<br>
+<br>
+<br>
+<br>
+
+<header th:replace="fragments/parts::navbar">
+</header>
+
+<body>
+<div class="container">
+    <center><h2>Specialities's List</h2></center>
+    <br>
+    <br>
+    <table id="example" class="table table-striped table-bordered" style="width:100%">
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+        </tr>
+        <tr th:each="speciality : ${specialities}">
+            <td th:text="${speciality.name}">Name</td>
+            <td th:text="${speciality.description}">Description</td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>

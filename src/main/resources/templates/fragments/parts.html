@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+
+<body>
+<head th:fragment="head">
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+    <title>Doctor's Appointment</title>
+
+    <link href="http://cdn.jsdelivr.net/webjars/bootstrap/4.1.0/css/bootstrap.min.css"
+          th:href="@{/webjars/bootstrap/4.1.0/css/bootstrap.min.css}"
+          rel="stylesheet" media="screen"/>
+
+    <link href="../../static/css/style.css"
+          th:href="@{css/style.css}" rel="stylesheet" media="screen"/>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+
+    
+
+    <!-- Bootstrap Date-Picker Plugin -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
+
+</head>
+
+
+        <!---------- nav-bar ------------->
+    <div th:fragment="navbar">
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-primary">
+            <div class="d-flex w-50">
+                <a class="navbar-brand mr-0" href="#" th:href="@{/}">Doctor<b>Me</b></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsingNavbar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+            <div class="navbar-collapse collapse" id="collapsingNavbar">
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#" th:href="@{/newappointment}" >Make an Appointment</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" th:href="@{/doctors}">Doctors</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" th:href="@{/specialities}">Specialities</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" th:href="@{/clinics}">Clinics</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" th:href="@{/contact}">Contact</a>
+                    </li>
+
+
+                    <div th:switch="${#authentication}? ${#authorization.expression('isAuthenticated()')} : ${false}">
+                        <span th:case="${false}"><li class="nav-item">
+                        <a class="nav-link" href="#" th:href="@{/login}">Log In</a>
+                    </li></span>
+                        <span th:case="${true}"><li class="nav-item">
+                        <a class="nav-link" href="#" th:href="@{/logout}">Log Out</a>
+                    </li></span>
+                    </div>
+
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" sec:authorize="hasRole('ROLE_ADMIN')">
+                            Register
+                        </button>
+                        <div class="dropdown-menu" >
+                            <a class="dropdown-item" href="#" th:href="@{/newclinic}" >Register new clinic</a>
+                            <a class="dropdown-item" href="#" th:href="@{/newdoctor}" >Register new doctor</a>
+                            <a class="dropdown-item" href="#" th:href="@{/newspeciality}" >Register new speciality</a>
+                        </div>
+                    </div>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" th:href="@{/appointments}" sec:authorize="hasRole('ROLE_ADMIN')">See Appointments</a>
+                    </li>
+                </ul>
+            </div>
+            <span class="navbar-text small text-truncate mt-1 w-50 text-right">We are here to help you!
+                <div class="welcome">
+            <span sec:authorize="isAuthenticated()">Welcome <span sec:authentication="name"></span></span>
+        </div>
+            </span>
+        </nav>
+
+        <!---------- nav-bar ------------->
+
+    </div>
+
+</body>
+</html>

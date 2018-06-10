@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+
+<head th:replace="fragments/parts::head">
+</head>
+
+<body>
+
+<nav th:replace="fragments/parts::navbar">
+</nav>
+
+<br>
+<br>
+<br>
+<br>
+
+
+<center><h2>Register</h2>
+
+<div th:if="${errorMessage != null}"
+     th:utext="${errorMessage}" class="error">...</div>
+
+<tr>
+    <td> <a class="btn btn-primary" href="#" role="button">Link</a></td>
+</tr>
+<tr>
+    <td> <button type="submit" class="btn btn-default">Log In</button></td>
+</tr>
+<tr>
+    <td> <button type="submit" class="btn btn-default">Log In</button></td>
+</tr>
+</center>
+
+</body>
+</html>

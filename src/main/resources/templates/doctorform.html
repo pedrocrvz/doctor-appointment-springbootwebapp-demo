@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head lang="en">
+
+    <head th:replace="fragments/parts::head">
+    </head>
+    <br>
+    <br>
+    <br>
+    <br>
+
+<body>
+
+<nav th:replace="fragments/parts::navbar">
+</nav>
+
+
+<div class="container">
+    <center><h1>Register a Doctor</h1>
+        <br>
+        <div th:if="${errorMessage != null}"
+             th:utext="${errorMessage}" class="error">...</div>
+        <form th:action="@{/registerdoctor}" th:object="${doctor}" method="POST">
+
+            <div class="form-group col-5">
+                <label for="firstName"><h5>First name</h5></label>
+                <input type="text" th:field="*{firstName}" class="form-control" id="firstName" placeholder="ex: John" required>
+                <div class="invalid-feedback">
+                    Please provide a valid first name.
+                </div>
+            </div>
+
+            <div class="form-group col-5">
+                <label for="lastName"><h5>Last name</h5></label>
+                <input type="text" th:field="*{lastName}" class="form-control" id="lastName" placeholder="ex: Doe" required>
+                <div class="invalid-feedback">
+                    Please provide a valid last name.
+                </div>
+            </div>
+
+            <div class="form-group col-5">
+                <label for="telephoneNumber"><h5>Telephone</h5></label>
+                <input type="text" th:field="*{telephoneNumber}" class="form-control" id="telephoneNumber" placeholder="Telephone number" required>
+                <div class="invalid-feedback">
+                    Please provide a telephone number.
+                </div>
+            </div>
+
+
+            <div class="col-lg-5">
+                <label for="clinic"><h5>Select The Clinic</h5></label>
+                <select class="form-control" id="clinic" name="clinic" th:field="*{clinic}" required>
+                    <option value="">Select Clinic</option>
+                    <option
+                            th:each="clinic: ${clinics}"
+                            th:value="${clinic.id}"
+                            th:text="${clinic.name}" ></option>
+                </select>
+            </div>
+
+
+            <br>
+            <div class="col-lg-5">
+                <label for="speciality"><h5>Select The Speciality</h5></label>
+                <select class="form-control" id="speciality" name="speciality" th:field="*{speciality}" required>
+                    <option value="">Select Speciality</option>
+                    <option
+                            th:each="speciality: ${specialities}"
+                            th:value="${speciality.id}"
+                            th:text="${speciality.name}" ></option>
+                </select>
+            </div>
+
+
+            <br>
+            <td>&nbsp;</td>
+            <td>
+                <button type="submit" class="btn btn-success mb-2">Register Doctor</button>
+            </td>
+            <td>&nbsp;</td>
+
+        </form>
+    </center>
+</div>
+
+
+´
+
+
+</body>
+</html>
