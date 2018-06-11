@@ -48,4 +48,18 @@ public class SpecialityController {
         specialityService.saveSpeciality(speciality);
         return "registerdone";
     }
+
+    @RequestMapping("speciality/edit/{id}")
+    public String editSpeciality(@PathVariable Integer id, Model model){
+        model.addAttribute("speciality", specialityService.getSpecialityById(id));
+        model.addAttribute("error", "Error: it was not possible to update the speciality");
+        return "specialityform";
+    }
+
+
+    @RequestMapping("speciality/delete/{id}")
+    public String delete(@PathVariable Integer id){
+        specialityService.deleteSpeciality(id);
+        return "redirect:/specialities";
+    }
 }

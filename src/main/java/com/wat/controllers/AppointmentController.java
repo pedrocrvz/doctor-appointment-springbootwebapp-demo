@@ -65,4 +65,17 @@ public class AppointmentController {
         return "registerdone";
     }
 
+    @RequestMapping("appointment/edit/{id}")
+    public String editAppointment(@PathVariable Integer id, Model model){
+        model.addAttribute("appointment", appointmentService.getAppointmentById(id));
+        model.addAttribute("error", "Error: it was not possible to update the appointment");
+        return "appointmentform";
+    }
+
+
+    @RequestMapping("appointment/delete/{id}")
+    public String delete(@PathVariable Integer id){
+        appointmentService.deleteAppointment(id);
+        return "redirect:/appointments";
+    }
 }

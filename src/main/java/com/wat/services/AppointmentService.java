@@ -14,4 +14,6 @@ public interface AppointmentService {
 
     Appointment saveAppointment(Appointment appointment);
 
+    void deleteAppointment(Integer id);
+
 }

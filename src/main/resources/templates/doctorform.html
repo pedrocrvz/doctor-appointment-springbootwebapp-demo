@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head lang="en">
-
+    <link href="../../static/css/style.css"
+          th:href="@{css/style.css}" rel="stylesheet" media="screen"/>
     <head th:replace="fragments/parts::head">
     </head>
     <br>
@@ -21,7 +22,7 @@
         <div th:if="${errorMessage != null}"
              th:utext="${errorMessage}" class="error">...</div>
         <form th:action="@{/registerdoctor}" th:object="${doctor}" method="POST">
-
+            <input type="hidden" th:field="*{id}"/>
             <div class="form-group col-5">
                 <label for="firstName"><h5>First name</h5></label>
                 <input type="text" th:field="*{firstName}" class="form-control" id="firstName" placeholder="ex: John" required>

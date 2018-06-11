@@ -54,4 +54,17 @@ public class ClinicController {
         return "registerdone";
     }
 
+    @RequestMapping("{id}")
+    public String editClinic(@PathVariable Integer id, Model model){
+        model.addAttribute("clinic", clinicService.getClinicById(id));
+        model.addAttribute("error", "Error: it was not possible to update the clinic");
+        return "clinicform";
+    }
+
+
+    @RequestMapping("clinic/delete/{id}")
+    public String delete(@PathVariable Integer id){
+        clinicService.deleteClinic(id);
+        return "redirect:/clinics";
+    }
 }

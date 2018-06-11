@@ -33,6 +33,11 @@ public class ClinicServiceImpl implements ClinicService {
     public Clinic saveClinic(Clinic clinic) {
         return clinicRepository.save(clinic);
     }
+
+    @Override
+    public void deleteClinic(Integer id) {
+        clinicRepository.deleteById(id);
+    }
 }
 
 

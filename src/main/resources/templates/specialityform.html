@@ -21,7 +21,7 @@
         <div th:if="${errorMessage != null}"
              th:utext="${errorMessage}" class="error">...</div>
         <form th:action="@{/registerspeciality}" th:object="${speciality}" method="POST">
-
+            <input type="hidden" th:field="*{id}"/>
             <div class="form-group col-5">
                 <label for="name"><h5>Name</h5></label>
                 <input type="text" th:field="*{name}" class="form-control" id="name" placeholder="ex: Dermatology" required>

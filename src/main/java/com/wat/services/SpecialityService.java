@@ -11,4 +11,6 @@ public interface SpecialityService {
     Speciality getSpecialityById(Integer id);
 
     Speciality saveSpeciality(Speciality speciality);
+
+    void deleteSpeciality(Integer id);
 }

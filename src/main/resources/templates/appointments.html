@@ -22,6 +22,8 @@
             <th>Date</th>
             <th>Notes</th>
             <th>Email</th>
+            <th sec:authorize="hasRole('ROLE_ADMIN')">Edit</th>
+            <th sec:authorize="hasRole('ROLE_ADMIN')">Delete</th>
         </tr>
         <tr th:each="appointment : ${appointments}">
             <td th:text="${appointment.name}">Name</td>
@@ -29,6 +31,8 @@
             <td th:text="${appointment.dateToString()}">Date</td>
             <td th:text="${appointment.notes}">Notes</td>
             <td th:text="${appointment.email}">Email</td>
+            <td sec:authorize="hasRole('ROLE_ADMIN')"><a th:href="${'/appointment/edit/' + appointment.id}"><h6>Edit</h6></a></td>
+            <td sec:authorize="hasRole('ROLE_ADMIN')"><a th:href="${'/appointment/delete/' + appointment.id}"><h6>Delete</h6></a></td>
         </tr>
     </table>
 </div>

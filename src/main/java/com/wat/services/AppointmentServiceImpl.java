@@ -32,4 +32,9 @@ public class AppointmentServiceImpl implements AppointmentService{
     public Appointment saveAppointment(Appointment appointment) {
         return appointmentRepository.save(appointment);
     }
+
+    @Override
+    public void deleteAppointment(Integer id) {
+        appointmentRepository.deleteById(id);
+    }
 }

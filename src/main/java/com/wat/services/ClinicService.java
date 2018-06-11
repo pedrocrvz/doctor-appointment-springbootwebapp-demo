@@ -11,4 +11,6 @@ public interface ClinicService {
     Clinic getClinicById(Integer id);
 
     Clinic saveClinic(Clinic clinic);
+
+    void deleteClinic(Integer id);
 }

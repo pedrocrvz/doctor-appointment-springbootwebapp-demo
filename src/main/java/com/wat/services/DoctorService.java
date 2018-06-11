@@ -12,4 +12,6 @@ public interface DoctorService {
     Doctor getDoctorById(Integer id);
 
     Doctor saveDoctor(Doctor doctor);
+
+    void deleteDoctor(Integer id);
 }

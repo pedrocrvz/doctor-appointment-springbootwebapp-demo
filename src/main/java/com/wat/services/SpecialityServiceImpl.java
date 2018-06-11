@@ -32,4 +32,9 @@ public class SpecialityServiceImpl implements SpecialityService {
     public Speciality saveSpeciality(Speciality speciality) {
         return specialityRepository.save(speciality);
     }
+
+    @Override
+    public void deleteSpeciality(Integer id) {
+        specialityRepository.deleteById(id);
+    }
 }

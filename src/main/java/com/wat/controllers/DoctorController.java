@@ -67,4 +67,20 @@ public class DoctorController {
         doctorService.saveDoctor(doctor);
         return "registerdone";
     }
+
+    @RequestMapping("doctor/edit/{id}")
+    public String editDoctor(@PathVariable Integer id, Model model){
+        model.addAttribute("doctor", doctorService.getDoctorById(id));
+        model.addAttribute("error", "Error: it was not possible to update the doctor");
+        model.addAttribute("specialities", specialtyService.listAllSpecialities());
+        model.addAttribute("clinics", clinicService.listAllClinics());
+        return "doctorform";
+    }
+
+
+    @RequestMapping("doctor/delete/{id}")
+    public String delete(@PathVariable Integer id){
+        doctorService.deleteDoctor(id);
+        return "redirect:/doctors";
+    }
 }

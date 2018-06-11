@@ -34,4 +34,9 @@ public class DoctorServiceImpl implements DoctorService {
     public Doctor saveDoctor(Doctor doctor) {
         return doctorRepository.save(doctor);
     }
+
+    @Override
+    public void deleteDoctor(Integer id) {
+        doctorRepository.deleteById(id);
+    }
 }
