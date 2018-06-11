@@ -67,6 +67,18 @@ public class Loader implements ApplicationListener<ContextRefreshedEvent> {
         specialityRepository.save(dermatology);
         log.info("Added Speciality Dermatology - id: " + dermatology.getId());
 
+        Speciality neurology = new Speciality();
+        neurology.setName("Neurology");
+        neurology.setDescription("Diseases involving the central, peripheral, and autonomic nervous systems");
+        specialityRepository.save(neurology);
+        log.info("Added Speciality neurology - id: " + neurology.getId());
+
+        Speciality dietetics = new Speciality();
+        dietetics.setName("Dietetics");
+        dietetics.setDescription("Food and nutrition");
+        specialityRepository.save(dietetics);
+        log.info("Added Speciality dietetics - id: " + dietetics.getId());
+
 
 
         //Clinics
@@ -90,6 +102,15 @@ public class Loader implements ApplicationListener<ContextRefreshedEvent> {
         clinicRepository.save(hopeClinic);
         log.info("Added Clinic Hope Clinic - id: " + hopeClinic.getId());
 
+        Clinic galloClinic = new Clinic();
+        galloClinic.setName("Gallo Clinic");
+        galloClinic.setAddress("Krakow, Batorego 4");
+        galloClinic.setTelephone("213448889");
+        galloClinic.setWebsite("www.galloclinic.com");
+        galloClinic.setDescription("We do good");
+        galloClinic.setEmail("galloclinic@email.com");
+        clinicRepository.save(galloClinic);
+        log.info("Added Clinic Gallo Clinic - id: " + galloClinic.getId());
 
 
         //Doctors
