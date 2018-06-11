@@ -75,7 +75,7 @@ public class Loader implements ApplicationListener<ContextRefreshedEvent> {
         bensClinic.setAddress("Krakow, Miodowa 6");
         bensClinic.setTelephone("213456789");
         bensClinic.setWebsite("www.bensclinic.com");
-        bensClinic.setDescription("We take car of you!");
+        bensClinic.setDescription("We take care of you!");
         bensClinic.setEmail("bensclinic@email.com");
         clinicRepository.save(bensClinic);
         log.info("Added Clinic Ben's Clinic - id: " + bensClinic.getId());
