@@ -34,7 +34,7 @@
             <td th:text="${clinic.email}">Email</td>
             <td th:text="${clinic.website}">Website</td>
             <td th:text="${clinic.description}">Description</td>
-            <td sec:authorize="hasRole('ROLE_ADMIN')"><a th:href="${clinic.id}"><h6>Edit</h6></a></td>
+            <td sec:authorize="hasRole('ROLE_ADMIN')"><a th:href="${'/clinic'clinic.id}"><h6>Edit</h6></a></td>
             <td sec:authorize="hasRole('ROLE_ADMIN')"><a th:href="${'/clinic/delete/' + clinic.id}"><h6>Delete</h6></a></td>
         </tr>
     </table>

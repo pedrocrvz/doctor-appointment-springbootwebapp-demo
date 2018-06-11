@@ -65,7 +65,7 @@ public class AppointmentController {
         return "registerdone";
     }
 
-    @RequestMapping("appointment/edit/{id}")
+    @RequestMapping("appointment{id}")
     public String editAppointment(@PathVariable Integer id, Model model){
         model.addAttribute("appointment", appointmentService.getAppointmentById(id));
         model.addAttribute("error", "Error: it was not possible to update the appointment");

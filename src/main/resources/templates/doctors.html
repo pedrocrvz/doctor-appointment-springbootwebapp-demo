@@ -30,7 +30,7 @@
                 <td th:text="${doctor.getSpeciality().getName()}">Speciality</td>
                 <td th:text="${doctor.telephoneNumber}">Telephone Number</td>
                 <td th:text="${doctor.getClinic().getName()}">Clinic</td>
-                <td sec:authorize="hasRole('ROLE_ADMIN')"><a th:href="${'/doctor/edit/' + doctor.id}"><h6>Edit</h6></a></td>
+                <td sec:authorize="hasRole('ROLE_ADMIN')"><a th:href="${'/doctor' + doctor.id}"><h6>Edit</h6></a></td>
                 <td sec:authorize="hasRole('ROLE_ADMIN')"><a th:href="${'/doctor/delete/' + doctor.id}"><h6>Delete</h6></a></td>
             </tr>
         </table>

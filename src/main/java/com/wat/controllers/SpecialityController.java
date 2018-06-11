@@ -49,7 +49,7 @@ public class SpecialityController {
         return "registerdone";
     }
 
-    @RequestMapping("speciality/edit/{id}")
+    @RequestMapping("speciality{id}")
     public String editSpeciality(@PathVariable Integer id, Model model){
         model.addAttribute("speciality", specialityService.getSpecialityById(id));
         model.addAttribute("error", "Error: it was not possible to update the speciality");

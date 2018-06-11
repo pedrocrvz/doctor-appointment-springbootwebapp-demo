@@ -68,7 +68,7 @@ public class DoctorController {
         return "registerdone";
     }
 
-    @RequestMapping("doctor/edit/{id}")
+    @RequestMapping("doctor{id}")
     public String editDoctor(@PathVariable Integer id, Model model){
         model.addAttribute("doctor", doctorService.getDoctorById(id));
         model.addAttribute("error", "Error: it was not possible to update the doctor");

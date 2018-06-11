@@ -25,7 +25,7 @@
         <tr th:each="speciality : ${specialities}">
             <td th:text="${speciality.name}">Name</td>
             <td th:text="${speciality.description}">Description</td>
-            <td sec:authorize="hasRole('ROLE_ADMIN')"><a th:href="${'/speciality/edit/' + speciality.id}"><h6>Edit</h6></a></td>
+            <td sec:authorize="hasRole('ROLE_ADMIN')"><a th:href="${'/speciality' + speciality.id}"><h6>Edit</h6></a></td>
             <td sec:authorize="hasRole('ROLE_ADMIN')"><a th:href="${'/speciality/delete/' + speciality.id}"><h6>Delete</h6></a></td>
         </tr>
     </table>

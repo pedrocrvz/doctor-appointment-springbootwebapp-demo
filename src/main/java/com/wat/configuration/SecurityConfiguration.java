@@ -21,14 +21,14 @@ import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry
  * Created by pedrocruz on 21/05/2018.
  */
 @Configuration
-@EnableWebSecurity
+//@EnableWebSecurity
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
 
 
     @Override
     protected void configure(HttpSecurity httpSecurity) throws Exception {
         httpSecurity
-                .authorizeRequests().antMatchers("/","/clinics","/doctors","/console/**").permitAll()
+                .authorizeRequests().antMatchers("/","/clinics","/doctors","/console/**","/css/**").permitAll()
                 .anyRequest().authenticated()
                 .antMatchers("/resources/**").permitAll().anyRequest().permitAll()
                 .and()
